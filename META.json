@@ -54,9 +54,19 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.01",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/LibreCat/Catmandu-RIS/issues"
+      },
+      "homepage" : "https://github.com/LibreCat/Catmandu-RIS",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/LibreCat/Catmandu-RIS.git",
+         "web" : "https://github.com/LibreCat/Catmandu-RIS"
+      }
+   },
+   "version" : "0.02",
    "x_contributors" : [
-      "Jessica Frazelle <princess@docker.com>",
       "vpeil <vitali.peil@uni-bielefeld.de>"
    ]
 }
