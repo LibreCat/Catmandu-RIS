@@ -18,7 +18,7 @@ my %module_build_args = (
     "Vitali Peil"
   ],
   "dist_name" => "Catmandu-RIS",
-  "dist_version" => "0.02",
+  "dist_version" => "0.03",
   "license" => "perl",
   "module_name" => "Catmandu::RIS",
   "recommends" => {},

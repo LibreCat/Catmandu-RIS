@@ -2,6 +2,9 @@ Revision history for Catmandu-RIS
 
 {{$NEXT}}
 
+0.03  2015-07-14 11:18:27 CEST
+  - support repeated field, fixes GH[#1]
+
 0.02  2015-07-14 07:49:53 CEST
   - pod
 
