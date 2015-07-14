@@ -1,7 +1,5 @@
 package Catmandu::RIS;
 
-use strict;
-use 5.008_005;
 our $VERSION = '0.01';
 
 1;
@@ -30,10 +28,6 @@ Nicolas Steenlant
 =head1 CONTRIBUTOR
 
 Vitali Peil
-
-=head1 COPYRIGHT
-
-Copyright 2015- Vitali Peil
 
 =head1 LICENSE
 
