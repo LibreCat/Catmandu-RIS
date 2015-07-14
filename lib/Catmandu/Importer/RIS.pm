@@ -2,6 +2,7 @@ package Catmandu::Importer::RIS;
 
 use namespace::clean;
 use Catmandu::Sane;
+use Catmandu::Util qw(:is :array);
 use Moo;
 
 with 'Catmandu::Importer';
@@ -21,7 +22,14 @@ sub generator {
             if ( $line =~ qr{^([A-Z][A-Z])$sep_char(.*)} ) {
                 my ($key, $val) = ($1, $2);
                 $val =~ s/\r//;
-                $data->{$key} = $val;
+                # handle repeatable fields
+                if ($data->{$key}) {
+                  $data->{$key} = [ grep { is_string $_ } @{$data->{$key}} ] if is_array_ref $data->{$key};
+                	$data->{$key} = [ $data->{$key} ] if is_string $data->{$key};
+                  push @{$data->{$key}}, $val;
+                } else {
+                  $data->{$key} = $val;
+                }
             } elsif($line =~ /^ER/) {
                 my $tmp = $data;
                 $data = {};

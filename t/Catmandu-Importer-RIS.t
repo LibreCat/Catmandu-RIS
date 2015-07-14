@@ -11,20 +11,20 @@ BEGIN {
 }
 require_ok $pkg;
 
-
 my $data = {
 	TY => "BOOK",
 	TI => "Mastering Perl",
-	AU => "brian d foy",
+	AU => ["brian d foy", "Randal L. Schwartz", "Tom Christiansen"],
 	PY => "2014",
 	PB => "O'Reilly",
 	XX => "However, import me", # unknown key, import nevertheless
 };
 
-
 my $ris = <<EOF;
 TY  - BOOK\r\n
 AU  - brian d foy\r\n
+AU  - Randal L. Schwartz
+AU  - Tom Christiansen
 PB  - O'Reilly\r\n
 PY  - 2014\r\n
 TI  - Mastering Perl\r\n
@@ -36,7 +36,16 @@ my $importer = $pkg->new(file => \$ris);
 
 isa_ok $importer, $pkg;
 
-is_deeply $data, $importer->first, "import data";
+is_deeply $data, $importer->first, "import data with repeated fields";
+
+$data = {
+	TY => "BOOK",
+	TI => "Mastering Perl",
+	AU => "brian d foy",
+	PY => "2014",
+	PB => "O'Reilly",
+	XX => "However, import me", # unknown key, import nevertheless
+};
 
 my $ris2 = <<EOF;
 TY  - BOOK\n
