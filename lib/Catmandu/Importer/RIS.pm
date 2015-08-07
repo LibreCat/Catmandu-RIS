@@ -16,13 +16,18 @@ sub generator {
         state $sep_char = $self->sep_char;
         state $line;
         state $data;
+        my $previous_key;
         while($line = <$fh>) {
+
             chomp($line);
             next if $line eq '';
+            $line =~ s/^\s\s/$previous_key/;
+
             if ( $line =~ qr{^([A-Z][A-Z])$sep_char(.*)} ) {
                 my ($key, $val) = ($1, $2);
+                $previous_key = $key;
                 $val =~ s/\r//;
-                # handle repeatable fields
+                # handle repeated fields
                 if ($data->{$key}) {
                   $data->{$key} = [ grep { is_string $_ } @{$data->{$key}} ] if is_array_ref $data->{$key};
                 	$data->{$key} = [ $data->{$key} ] if is_string $data->{$key};

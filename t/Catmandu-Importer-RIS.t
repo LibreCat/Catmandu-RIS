@@ -72,6 +72,7 @@ is $importer2->count, 2, "import many records";
 my $ris3 = <<EOF;
 TY BOOK\n
 AU brian d foy\n
+   Larry Wall
 PB O'Reilly\n
 PY 2014\n
 TI Mastering Perl\n
@@ -83,6 +84,7 @@ my $importer3 = $pkg->new(file => \$ris3, sep_char => '\s');
 
 isa_ok $importer3, $pkg;
 
-is_deeply $data, $importer3->first, "import data with custom separator";
+$data->{AU} = ["brian d foy", "Larry Wall"];
+is_deeply $data, $importer3->first, "import data with custom separator and ugly data";
 
 done_testing;
