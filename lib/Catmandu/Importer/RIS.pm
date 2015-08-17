@@ -7,26 +7,35 @@ use Moo;
 
 with 'Catmandu::Importer';
 
-has sep_char => (is => 'ro', default => sub {'\s\s-\s'});
+has sep_char => (is => 'ro', default => sub {'\W+'});
 
 sub generator {
     my ($self) = @_;
     sub {
         state $fh = $self->fh;
         state $sep_char = $self->sep_char;
+        state $pattern  = qr/$sep_char/;
         state $line;
         state $data;
-        my $previous_key;
+        my $previous_key= '';
         while($line = <$fh>) {
 
             chomp($line);
             next if $line eq '';
+            # Remove BOM
+            $line =~ s/^\x{feff}//;
             $line =~ s/^\s\s/$previous_key/;
 
-            if ( $line =~ qr{^([A-Z][A-Z])$sep_char(.*)} ) {
-                my ($key, $val) = ($1, $2);
+            my ($key,$val) = split($pattern,$line,2);
+
+            if ($key eq 'ER') {
+                my $tmp = $data;
+                $data = {};
+                return $tmp;
+            }
+            else {
                 $previous_key = $key;
-                $val =~ s/\r//;
+                $val =~ s/\r// if defined $val;
                 # handle repeated fields
                 if ($data->{$key}) {
                   $data->{$key} = [ grep { is_string $_ } @{$data->{$key}} ] if is_array_ref $data->{$key};
@@ -35,11 +44,7 @@ sub generator {
                 } else {
                   $data->{$key} = $val;
                 }
-            } elsif($line =~ /^ER/) {
-                my $tmp = $data;
-                $data = {};
-                return $tmp;
-            }
+            } 
         }
         return;
     };
@@ -75,8 +80,7 @@ In Perl code:
 
 =item sep_char
 
-Default is to the regex '\s\s-\s' but sometimes you see RIS like files with
-other separator, e.g "TY Foo" instead of "TY  - Foo".
+Set a field separator
 
 =back
 

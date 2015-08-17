@@ -80,7 +80,7 @@ XX However, import me\n
 ER
 EOF
 
-my $importer3 = $pkg->new(file => \$ris3, sep_char => '\s');
+my $importer3 = $pkg->new(file => \$ris3);
 
 isa_ok $importer3, $pkg;
 
