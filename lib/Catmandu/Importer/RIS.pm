@@ -76,7 +76,8 @@ sub generator {
                   $data->{$key} = $val;
                 }
             } 
-        };
+        }
+        return undef;
     };
 }
 
