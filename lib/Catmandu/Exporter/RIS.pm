@@ -48,11 +48,9 @@ Catmandu::Exporter::RIS - a RIS exporter
     $exporter->add($hashref);
 
     $exporter->add({
-     _type    => 'book',
-     _citekey => '389-ajk0-1',
-     title    => 'the Zen of {CSS} design',
-     author   => ['Dave Shea','Molley E. Holzschlag'],
-     isbn     => '0-321-30347-4'
+     TI   => 'the Zen of CSS design',
+     AU   => ['Dave Shea','Molley E. Holzschlag'],
+     IS   => '0-321-30347-4'
     });
 
     printf "exported %d objects\n" , $exporter->count;
