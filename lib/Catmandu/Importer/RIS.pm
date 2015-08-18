@@ -8,7 +8,7 @@ use Moo;
 
 with 'Catmandu::Importer';
 
-has sep_char => (is => 'ro', default => sub {'\W+'});
+has sep_char => (is => 'ro', default => sub {'\s+-?\s*'});
 has human    => (is => 'ro');
 has ris      => (is => 'lazy');
 
