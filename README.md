@@ -25,6 +25,7 @@ Nicolas Steenlant
 # CONTRIBUTOR
 
 Vitali Peil
+
 Patrick Hochstenbach
 
 # LICENSE

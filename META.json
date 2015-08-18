@@ -4,13 +4,13 @@
       "Vitali Peil"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.034, Dist::Milla version v1.0.15, CPAN::Meta::Converter version 2.150001",
+   "generated_by" : "Dist::Zilla version 5.037, Dist::Milla version v1.0.15, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-      "version" : 2
+      "version" : "2"
    },
    "name" : "Catmandu-RIS",
    "no_index" : {
@@ -66,7 +66,7 @@
          "web" : "https://github.com/LibreCat/Catmandu-RIS"
       }
    },
-   "version" : "0.04",
+   "version" : "0.10",
    "x_contributors" : [
       "Patrick Hochstenbach <patrick.hochstenbach@ugent.be>",
       "vpeil <vitali.peil@uni-bielefeld.de>"

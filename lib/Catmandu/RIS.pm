@@ -1,6 +1,6 @@
 package Catmandu::RIS;
 
-our $VERSION = '0.04';
+our $VERSION = '0.10';
 
 1;
 __END__
