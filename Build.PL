@@ -24,9 +24,10 @@ my %module_build_args = (
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
-    "Catmandu" => "0.94",
+    "Catmandu" => 0,
+    "Catmandu::Importer::CSV" => 0,
     "Encode" => 0,
-    "perl" => "5.008005"
+    "perl" => "v5.10.1"
   },
   "script_files" => [],
   "test_requires" => {

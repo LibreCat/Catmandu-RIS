@@ -1,6 +1,7 @@
-requires 'perl', '5.008005';
+requires 'perl', 'v5.10.1';
 
-requires 'Catmandu','0.94';
+requires 'Catmandu', 0;
+requires 'Catmandu::Importer::CSV', 0;
 requires 'Encode';
 
 on build => sub {

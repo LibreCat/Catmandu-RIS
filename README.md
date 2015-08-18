@@ -8,6 +8,16 @@ Catmandu::RIS -  Catmandu modules for working with RIS data
 [![Coverage](https://coveralls.io/repos/LibreCat/Catmandu-RIS/badge.png?branch=master)](https://coveralls.io/r/LibreCat/Catmandu-RIS)
 [![CPANTS kwalitee](http://cpants.cpanauthors.org/dist/Catmandu-RIS.png)](http://cpants.cpanauthors.org/dist/Catmandu-RIS)
 
+# SYNOPSIS
+
+    catmandu convert RIS < input.txt
+    
+    # Use the --human option to translate RIS tags into human readable strings
+    catmandu convert RIS --human 1 < input.txt
+
+    # Provide a comma separated mapping file to translate RIS tags
+    catmandu convert RIS --human mappings/my_tags.txt < input.txt
+
 # Author
 
 Nicolas Steenlant

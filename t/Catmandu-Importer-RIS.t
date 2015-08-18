@@ -87,4 +87,38 @@ isa_ok $importer3, $pkg;
 $data->{AU} = ["brian d foy", "Larry Wall"];
 is_deeply $data, $importer3->first, "import data with custom separator and ugly data";
 
+my $ris4 = <<EOF;
+TY BOOK\n
+AU brian d foy\n
+   Larry Wall
+PB O'Reilly\n
+PY 2014\n
+TI Mastering Perl\n
+XX However, import me\n
+ER
+EOF
+
+my $importer4 = $pkg->new(file => \$ris4, human => 1);
+
+isa_ok $importer4, $pkg;
+
+is_deeply $importer4->first->{Author} , ["brian d foy", "Larry Wall"] , "human ok";
+
+my $ris5 = <<EOF;
+TY BOOK\n
+AU brian d foy\n
+   Larry Wall
+PB O'Reilly\n
+PY 2014\n
+TI Mastering Perl\n
+XX However, import me\n
+ER
+EOF
+
+my $importer5 = $pkg->new(file => \$ris5, human => 't/human.txt');
+
+isa_ok $importer5, $pkg;
+
+is_deeply $importer5->first->{Author} , ["brian d foy", "Larry Wall"] , "human from file ok";
+
 done_testing;
