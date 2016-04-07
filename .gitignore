@@ -6,3 +6,5 @@ MYMETA.*
 !META.json
 /.prove
 blib/
+local
+cpanfile.snapshot
