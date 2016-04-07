@@ -1,7 +1,8 @@
 Revision history for Catmandu-RIS
 
 {{$NEXT}}
-
+  - Providing how to create a MARC 2 RIS mapping
+ 
 0.10  2015-08-18 19:31:45 CEST
   - support for semi-automatic detection of separation characters at import
   - fixing previous_key import bug
