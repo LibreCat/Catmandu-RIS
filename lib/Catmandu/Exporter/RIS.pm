@@ -1,5 +1,7 @@
 package Catmandu::Exporter::RIS;
 
+our $VERSION = '0.10';
+
 use namespace::clean;
 use Catmandu::Sane;
 use Moo;
@@ -28,6 +30,12 @@ sub add {
 
     print $fh "ER  - \r\n";
 }
+
+1;
+
+__END__
+
+=pod
 
 =head1 NAME
 
@@ -69,5 +77,3 @@ fields and values as a string or array reference.
 L<Catmandu::Exporter>
 
 =cut
-
-1;
