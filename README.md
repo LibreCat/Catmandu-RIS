@@ -18,6 +18,16 @@ Catmandu::RIS -  Catmandu modules for working with RIS data
     # Provide a comma separated mapping file to translate RIS tags
     catmandu convert RIS --human mappings/my_tags.txt < input.txt
 
+# MODULES
+
+- [Catmandu::Exporter::RIS](https://metacpan.org/pod/Catmandu::Exporter::RIS)
+- [Catmandu::Importer::RIS](https://metacpan.org/pod/Catmandu::Importer::RIS)
+
+# MAPPING
+
+See the examples in the package [https://github.com/LibreCat/Catmandu-RIS/tree/master/examples](https://github.com/LibreCat/Catmandu-RIS/tree/master/examples) 
+for some hints how to create a mapping.
+
 # Author
 
 Nicolas Steenlant
