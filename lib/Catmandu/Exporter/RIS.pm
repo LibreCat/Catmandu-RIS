@@ -2,7 +2,6 @@ package Catmandu::Exporter::RIS;
 
 use namespace::clean;
 use Catmandu::Sane;
-use Encode qw(encode_utf8);
 use Moo;
 
 with 'Catmandu::Exporter';
@@ -22,7 +21,6 @@ sub add {
             $vals = [$vals] unless ref $vals;
             for my $val (@$vals) {
                 $val = substr($val, 255) if length($val) > 255 && $tag =~ $SMALL_TAG;
-                $val = encode_utf8($val);
                 print $fh "$tag  - $val\r\n";
             }
         }
