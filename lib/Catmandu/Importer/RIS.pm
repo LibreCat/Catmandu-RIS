@@ -4,7 +4,6 @@ our $VERSION = '0.11';
 
 use namespace::clean;
 use Catmandu::Sane;
-use Catmandu::Importer::CSV;
 use Catmandu::Util qw(:is :array);
 use Moo;
 
