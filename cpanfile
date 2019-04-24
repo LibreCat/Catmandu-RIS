@@ -1,5 +1,7 @@
 requires 'perl', 'v5.10.1';
 
+requires 'Moo', 0;
+requires 'namespace::clean', 0;
 requires 'Catmandu', 0;
 requires 'Catmandu::Importer::CSV', 0;
 
